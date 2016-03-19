@@ -10,6 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
-
+@property (nonatomic,strong) NSString *URLString;
 @end
 

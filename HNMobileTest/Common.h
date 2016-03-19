@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef void (^APIRequestResponseBlock) (id object, BOOL status, NSError *error);
 
 @interface Common : NSObject
 
++ (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 + (NSString *)stringFromDateString:(NSString *)dateStr;
 
 @end

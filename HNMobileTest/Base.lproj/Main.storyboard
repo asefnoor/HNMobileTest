@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="551" y="293"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="S0T-Sy-If6">
             <objects>
-                <viewController id="P3d-B8-s6w" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" id="P3d-B8-s6w" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3CK-bF-jrz"/>
                         <viewControllerLayoutGuide type="bottom" id="hwr-hG-QhQ"/>
@@ -93,10 +93,25 @@
                     <view key="view" contentMode="scaleToFill" id="Cpb-fJ-bzP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8F-Ge-iGV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q8F-Ge-iGV" firstAttribute="top" secondItem="3CK-bF-jrz" secondAttribute="bottom" constant="-20" id="ACe-7M-1FY"/>
+                            <constraint firstItem="q8F-Ge-iGV" firstAttribute="leading" secondItem="Cpb-fJ-bzP" secondAttribute="leadingMargin" constant="-20" id="TBC-Hl-7ZG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q8F-Ge-iGV" secondAttribute="trailing" constant="-20" id="UVr-Tc-8I7"/>
+                            <constraint firstItem="hwr-hG-QhQ" firstAttribute="top" secondItem="q8F-Ge-iGV" secondAttribute="bottom" id="v6i-ot-dkq"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="456"/>
+                    <connections>
+                        <outlet property="webView" destination="q8F-Ge-iGV" id="nAx-kA-E0v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kt-Ld-6bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

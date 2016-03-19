@@ -7,10 +7,13 @@
 //
 
 #import "ListViewController.h"
-#import "ListTableViewCell.h"
 #import "NewsItem+APICommunication.h"
-#import "NSDate+TimeAgo.h"
+
+#import "ListTableViewCell.h"
+#import "DetailViewController.h"
+
 #import "DejalActivityView.h"
+#import "NSDate+TimeAgo.h"
 
 @interface ListViewController ()
 
@@ -25,9 +28,12 @@ static NSString *const HNMTitleCell = @"HNMTitleCell";
 
 @implementation ListViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _newsItems = [[NSMutableArray alloc] init];
     
     [DejalActivityView activityViewForView:self.view withLabel:@"Loading ..."];
@@ -67,10 +73,7 @@ static NSString *const HNMTitleCell = @"HNMTitleCell";
         [DejalActivityView removeView];
     }];
     
-    
-    
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.newsItems count];
@@ -84,6 +87,20 @@ static NSString *const HNMTitleCell = @"HNMTitleCell";
     cell.newsItem = newsItem;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NewsItem *newsItem = [self.newsItems objectAtIndex:indexPath.row];
+    if (newsItem.storyURLStr.length >0) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];// like Main.storyboard for used "Main"
+        DetailViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
+        detailViewController.URLString = newsItem.storyURLStr;
+        //To show Back
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    } else {
+        [Common showAlertWithTitle:nil message:@"No details found"];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

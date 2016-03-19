@@ -23,4 +23,11 @@
     return [prettyDate timeAgo];
 }
 
++ (void)showAlertWithTitle:(NSString *)title message:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    
+    [alert show];
+}
+
 @end
