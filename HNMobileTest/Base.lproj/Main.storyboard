@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GUP-61-A3u">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HNMTitleCell" rowHeight="100" id="9Aj-r1-WMw" customClass="ListTableViewCell">
@@ -66,10 +66,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GUP-61-A3u" secondAttribute="bottom" constant="4" id="6Eb-6Q-Ipj"/>
                             <constraint firstItem="GUP-61-A3u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="QIm-5h-u8H"/>
                             <constraint firstItem="GUP-61-A3u" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="iKs-1Y-JEG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GUP-61-A3u" secondAttribute="trailing" constant="-20" id="sp3-jN-2B9"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GUP-61-A3u" secondAttribute="bottom" constant="-20" id="v9m-xe-ysd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IxF-Wg-gKm"/>

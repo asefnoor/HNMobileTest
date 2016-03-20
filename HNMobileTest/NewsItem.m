@@ -30,4 +30,25 @@ static inline NSString* emptyStringIfNull(NSString *s) {
     return [[self alloc] initNewItemWithDict:dict];
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.itemID forKey:@"story_id"];
+    [aCoder encodeObject:self.title forKey:@"story_title"];
+    [aCoder encodeObject:self.author forKey:@"author"];
+    [aCoder encodeObject:self.dateTimeStr forKey:@"created_at"];
+    [aCoder encodeObject:self.storyURLStr forKey:@"story_url"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        self.itemID = emptyStringIfNull([aDecoder decodeObjectForKey:@"story_id"]);
+        self.title = emptyStringIfNull([aDecoder decodeObjectForKey:@"story_title"]);
+        self.author = emptyStringIfNull([aDecoder decodeObjectForKey:@"author"]);
+        self.dateTimeStr = emptyStringIfNull([aDecoder decodeObjectForKey:@"created_at"]) ;
+        self.storyURLStr = emptyStringIfNull([aDecoder decodeObjectForKey:@"story_url"]);
+    }
+    return self;
+}
+
+
 @end

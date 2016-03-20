@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NewsItem : NSObject
+@interface NewsItem : NSObject <NSCoding>
 
 @property (nonatomic,strong) NSString *itemID;
 @property (nonatomic,strong) NSString *title;

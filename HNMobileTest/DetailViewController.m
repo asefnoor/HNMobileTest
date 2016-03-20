@@ -19,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+     self.navigationController.navigationBarHidden = NO;
     self.webView.delegate = self;
     // Do any additional setup after loading the view, typically from a nib.
     [self loadWebView];

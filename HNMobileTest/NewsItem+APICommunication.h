@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NewsItem.h"
-#import "Common.h"
+#import "AppController.h"
 
 @interface NewsItem (APICommunication)
 

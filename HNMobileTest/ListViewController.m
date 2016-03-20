@@ -24,20 +24,38 @@
 @end
 
 static NSString *const HNMTitleCell = @"HNMTitleCell";
-
+static NSString *const HNMAlertMessage = @"HNMobile could not load from local storage. Please pull down to refresh to fetch latest items.";
 
 @implementation ListViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
     
 }
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     _newsItems = [[NSMutableArray alloc] init];
     
-    [DejalActivityView activityViewForView:self.view withLabel:@"Loading ..."];
-    [self sendNewsItemRequest];
+    if ([AppController isInternetNotAvailable]) {
+        NSArray *items = [[AppController dataManager] readArrayWithCustomObjFromUserDefaults];
+        if ([items count] == 0) {
+            [AppController showAlertWithTitle:nil message:HNMAlertMessage];
+        } else {
+            [self.newsItems addObjectsFromArray:items];
+        }
+    } else {
+        
+      [DejalActivityView activityViewForView:self.view withLabel:@"Loading ..."];
+      [self sendNewsItemRequest];
+    }
+  
+    [self setupRefreshControl];
+}
+
+- (void)setupRefreshControl {
     
     // Do any additional setup after loading the view, typically from a nib.
     self.refreshControl = [[UIRefreshControl alloc]init];
@@ -52,7 +70,7 @@ static NSString *const HNMTitleCell = @"HNMTitleCell";
     [self sendNewsItemRequest];
     
     NSDate *currentDate = [NSDate date];
-    NSString *title = [NSString stringWithFormat:@"update %@ ago", [currentDate timeAgo]];
+    NSString *title = [NSString stringWithFormat:@"updated %@", [currentDate timeAgo]];
     NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
                                                                 forKey:NSForegroundColorAttributeName];
     NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
@@ -63,12 +81,13 @@ static NSString *const HNMTitleCell = @"HNMTitleCell";
 
 - (void)sendNewsItemRequest
 {
-    [self.newsItems removeAllObjects];
+    __weak typeof(self) weakSelf = self;
+    
     [NewsItem latestFeedWithResponseBlock:^(id object, BOOL status, NSError *error) {
-        
         if (status && object) {
-            [self.newsItems addObjectsFromArray:(NSArray*)object];
-            [self.tableView reloadData];
+            [weakSelf.newsItems removeAllObjects];
+            [weakSelf.newsItems addObjectsFromArray:(NSArray*)object];
+            [weakSelf.tableView reloadData];
         }
         [DejalActivityView removeView];
     }];
@@ -93,13 +112,13 @@ static NSString *const HNMTitleCell = @"HNMTitleCell";
     
     NewsItem *newsItem = [self.newsItems objectAtIndex:indexPath.row];
     if (newsItem.storyURLStr.length >0) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];// like Main.storyboard for used "Main"
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DetailViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
         detailViewController.URLString = newsItem.storyURLStr;
-        //To show Back
         [self.navigationController pushViewController:detailViewController animated:YES];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
-        [Common showAlertWithTitle:nil message:@"No details found"];
+        [AppController showAlertWithTitle:nil message:@"No details found"];
     }
 }
 
@@ -108,6 +127,9 @@ static NSString *const HNMTitleCell = @"HNMTitleCell";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
         [self.newsItems removeObjectAtIndex:indexPath.row];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[AppController dataManager] writeArrayWithCustomObjToUserDefaultsWithArray:self.newsItems ];
+        });
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         
     }

@@ -13,6 +13,7 @@ static NSString *const HNMFeedWebserviceURLString = @"http://hn.algolia.com/api/
 
 @implementation NewsItem (APICommunication)
 
+
 + (void)latestFeedWithResponseBlock:(APIRequestResponseBlock)responseBlock {
 
     NSURL *URL = [NSURL URLWithString:HNMFeedWebserviceURLString];
@@ -29,6 +30,11 @@ static NSString *const HNMFeedWebserviceURLString = @"http://hn.algolia.com/api/
             NewsItem *newsItem = [NewsItem newsItemFromDict:dict];
             [items addObject:newsItem];
         }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[AppController dataManager] writeArrayWithCustomObjToUserDefaultsWithArray:items];
+        });
+        
         responseBlock([items copy] , TRUE, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", [error localizedDescription]);

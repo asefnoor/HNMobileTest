@@ -17,11 +17,12 @@
 		2726E4431C9D43D100804226 /* NewsItem+APICommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E4411C9D43D100804226 /* NewsItem+APICommunication.m */; };
 		2726E4491C9D43E400804226 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E4461C9D43E400804226 /* ListTableViewCell.m */; };
 		2726E44A1C9D43E400804226 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E4481C9D43E400804226 /* ListViewController.m */; };
-		2726E44E1C9D449900804226 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E44D1C9D449900804226 /* Common.m */; };
+		2726E44E1C9D449900804226 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E44D1C9D449900804226 /* AppController.m */; };
 		2726E4511C9D5F4300804226 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E4501C9D5F4300804226 /* DejalActivityView.m */; };
 		2726E4561C9DD22D00804226 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2726E4521C9DD22D00804226 /* LICENSE */; };
 		2726E4571C9DD22D00804226 /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E4541C9DD22D00804226 /* NSDate+TimeAgo.m */; };
 		2726E45C1C9DD41500804226 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2726E45B1C9DD41500804226 /* NSDateTimeAgo.bundle */; };
+		2726E45F1C9E816F00804226 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2726E45E1C9E816F00804226 /* Reachability.m */; };
 		C698398676D85B7E1FF1C6B0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690DE97AB46232BD37EBB0A6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,14 +46,16 @@
 		2726E4461C9D43E400804226 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		2726E4471C9D43E400804226 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		2726E4481C9D43E400804226 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		2726E44C1C9D449900804226 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		2726E44D1C9D449900804226 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		2726E44C1C9D449900804226 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		2726E44D1C9D449900804226 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2726E44F1C9D5F4300804226 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		2726E4501C9D5F4300804226 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		2726E4521C9DD22D00804226 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		2726E4531C9DD22D00804226 /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
 		2726E4541C9DD22D00804226 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
 		2726E45B1C9DD41500804226 /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		2726E45D1C9E816F00804226 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		2726E45E1C9E816F00804226 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		279B46759055F8FC6E566284 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		690DE97AB46232BD37EBB0A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,10 +142,12 @@
 		2726E44B1C9D448500804226 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2726E44C1C9D449900804226 /* Common.h */,
-				2726E44D1C9D449900804226 /* Common.m */,
+				2726E44C1C9D449900804226 /* AppController.h */,
+				2726E44D1C9D449900804226 /* AppController.m */,
 				2726E44F1C9D5F4300804226 /* DejalActivityView.h */,
 				2726E4501C9D5F4300804226 /* DejalActivityView.m */,
+				2726E45D1C9E816F00804226 /* Reachability.h */,
+				2726E45E1C9E816F00804226 /* Reachability.m */,
 				2726E4521C9DD22D00804226 /* LICENSE */,
 				2726E4531C9DD22D00804226 /* NSDate+TimeAgo.h */,
 				2726E4541C9DD22D00804226 /* NSDate+TimeAgo.m */,
@@ -278,10 +283,11 @@
 				2726E4511C9D5F4300804226 /* DejalActivityView.m in Sources */,
 				2726E42E1C9D3EB000804226 /* DetailViewController.m in Sources */,
 				2726E4421C9D43D100804226 /* NewsItem.m in Sources */,
+				2726E45F1C9E816F00804226 /* Reachability.m in Sources */,
 				2726E44A1C9D43E400804226 /* ListViewController.m in Sources */,
 				2726E4431C9D43D100804226 /* NewsItem+APICommunication.m in Sources */,
 				2726E4571C9DD22D00804226 /* NSDate+TimeAgo.m in Sources */,
-				2726E44E1C9D449900804226 /* Common.m in Sources */,
+				2726E44E1C9D449900804226 /* AppController.m in Sources */,
 				2726E4491C9D43E400804226 /* ListTableViewCell.m in Sources */,
 				2726E42B1C9D3EB000804226 /* AppDelegate.m in Sources */,
 				2726E4281C9D3EB000804226 /* main.m in Sources */,

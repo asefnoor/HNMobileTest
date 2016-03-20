@@ -7,7 +7,7 @@
 //
 
 #import "ListTableViewCell.h"
-#import "Common.h"
+#import "AppController.h"
 
 @implementation ListTableViewCell
 
@@ -25,7 +25,7 @@
 - (void)setNewsItem:(NewsItem *)newsItem {
     NSLog(@"title:%@",newsItem.title);
     self.titleLabel.text = [newsItem.title length] == 0 ? @"No title found": newsItem.title;
-    NSString *dateStr = [Common stringFromDateString:newsItem.dateTimeStr];
+    NSString *dateStr = [AppController stringFromDateString:newsItem.dateTimeStr];
     self.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %@",newsItem.author,dateStr];
     
 }

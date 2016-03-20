@@ -11,9 +11,15 @@
 
 typedef void (^APIRequestResponseBlock) (id object, BOOL status, NSError *error);
 
-@interface Common : NSObject
+@interface AppController : NSObject
 
++ (instancetype)dataManager;
+
++ (BOOL)isInternetNotAvailable;
 + (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 + (NSString *)stringFromDateString:(NSString *)dateStr;
+-(NSArray *)readArrayWithCustomObjFromUserDefaults;
+-(void)writeArrayWithCustomObjToUserDefaultsWithArray:(NSMutableArray *)array;
+
 
 @end
